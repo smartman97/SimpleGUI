@@ -14,7 +14,7 @@ public class GUIController
 	 */
 	public GUIController()
 	{
-		baseFrame= new GUIFrame(this);
+		baseFrame = new GUIFrame(this);
 	}
 	
 	public void start()
