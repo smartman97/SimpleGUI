@@ -1,7 +1,12 @@
 package gui.view;
 
 import gui.controller.GUIController;
+
 import javax.swing.*;
+
+import java.awt.Color;
+import java.awt.event.*;
+import java.util.Random;
 
 public class GUIPanel extends JPanel
 {
@@ -28,21 +33,41 @@ public class GUIPanel extends JPanel
 	 */
 	private void setupListeners()
 	{
-		this.setLayout(baseLayout);
-		this.add(firstButton);
-		this.add(firstTextField);
+		firstButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				setBackground(randomColor());
+				firstTextField.setText("OOOO, pretty colors!");
+			}
+		});
 	}
 
 	private void setupLayout()
 	{
 		baseLayout.putConstraint(SpringLayout.NORTH, firstButton, 0, SpringLayout.NORTH, this);
-		baseLayout.putConstraint(SpringLayout.EAST, firstButton, -160, SpringLayout.EAST, this);
-		baseLayout.putConstraint(SpringLayout.NORTH, firstTextField, 6, SpringLayout.SOUTH, firstButton);
-		baseLayout.putConstraint(SpringLayout.EAST, firstTextField, -182, SpringLayout.EAST, this);
+		baseLayout.putConstraint(SpringLayout.EAST, firstButton, -162, SpringLayout.EAST, this);
+		baseLayout.putConstraint(SpringLayout.NORTH, firstTextField, 45, SpringLayout.SOUTH, firstButton);
+		baseLayout.putConstraint(SpringLayout.WEST, firstTextField, 42, SpringLayout.WEST, this);
+		baseLayout.putConstraint(SpringLayout.EAST, firstTextField, 121, SpringLayout.EAST, firstButton);
 	}
 
 	private void setupPanel()
 	{
-
+		this.setLayout(baseLayout);
+		this.add(firstButton);
+		this.add(firstTextField);
+	}
+	
+	private Color randomColor()
+	{
+		Random rand = new Random();
+		int r = rand.nextInt(256);
+		int g = rand.nextInt(256);
+		int b = rand.nextInt(256);
+		
+		Color randomColor = new Color(r, g, b);
+		
+		return randomColor;
 	}
 }
