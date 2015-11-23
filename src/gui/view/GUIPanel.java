@@ -1,9 +1,7 @@
 package gui.view;
 
 import gui.controller.GUIController;
-
 import javax.swing.*;
-
 import java.awt.Color;
 import java.awt.event.*;
 import java.util.Random;
