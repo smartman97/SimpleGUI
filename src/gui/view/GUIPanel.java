@@ -1,10 +1,14 @@
 package gui.view;
 
 import gui.controller.GUIController;
-import javax.swing.*;
+
 import java.awt.Color;
 import java.awt.event.*;
 import java.util.Random;
+import javax.swing.JButton;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.SpringLayout;
 
 public class GUIPanel extends JPanel
 {
@@ -38,6 +42,11 @@ public class GUIPanel extends JPanel
 				setBackground(randomColor());
 				firstTextField.setText("OOOO, pretty colors!");
 			}
+		});
+		
+		this.addMouseListener(new MouseListener()
+		{
+			
 		});
 	}
 
