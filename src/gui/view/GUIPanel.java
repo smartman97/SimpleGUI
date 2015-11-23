@@ -2,11 +2,18 @@ package gui.view;
 
 import gui.controller.GUIController;
 
-import javax.swing.*;
-
 import java.awt.Color;
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 import java.util.Random;
+
+import javax.swing.JButton;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.SpringLayout;
 
 public class GUIPanel extends JPanel
 {
@@ -39,6 +46,57 @@ public class GUIPanel extends JPanel
 			{
 				setBackground(randomColor());
 				firstTextField.setText("OOOO, pretty colors!");
+			}
+		});
+		
+		this.addMouseListener(new MouseListener()
+		{
+			public void mouseClicked(MouseEvent click)
+			{
+				setBackground(randomColor());
+			}
+			
+			public void mouseReleased(MouseEvent released)
+			{
+				
+			}
+			
+			public void mousePressed(MouseEvent pressed)
+			{
+				
+			}
+			
+			public void mouseEntered(MouseEvent entered)
+			{
+				firstTextField.setText("WOW!");
+			}
+
+			public void mouseExited(MouseEvent exited)
+			{
+				firstTextField.setText("AHHHHHH!");
+			}
+		});
+		
+		this.addMouseMotionListener(new MouseMotionListener()
+		{
+			public void mouseMoved(MouseEvent moved)
+			{
+				if(moved.isAltDown())
+				{
+					setBackground(randomColor());
+				}
+				
+				firstTextField.setText("Mouse X:" + moved.getX() + " Mouse Y: " + moved.getY());
+				
+				if((Math.abs(moved.getX() - firstButton.getX()) < 5 && (Math.abs(moved.getY() - firstButton.getY()) < 5)))
+				{
+					firstButton.setLocation((int) (Math.random() * 350), (int) (Math.random() * 350));
+				}			
+			}
+
+			public void mouseDragged(MouseEvent dragged)
+			{
+				setBackground(randomColor());
 			}
 		});
 	}
