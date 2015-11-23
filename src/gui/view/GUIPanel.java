@@ -5,10 +5,8 @@ import gui.controller.GUIController;
 import java.awt.Color;
 import java.awt.event.*;
 import java.util.Random;
-import javax.swing.JButton;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.SpringLayout;
+
+import javax.swing.*;
 
 public class GUIPanel extends JPanel
 {
@@ -46,7 +44,32 @@ public class GUIPanel extends JPanel
 		
 		this.addMouseListener(new MouseListener()
 		{
+			public void mouseClicked(MouseEvent click)
+			{
+				setBackground(randomColor());
+			}
 			
+			public void mouseReleased(MouseEvent released)
+			{
+				
+			}
+			
+			public void mousePressed(MouseEvent pressed)
+			{
+				
+			}
+			
+			public void mouseEntered(MouseEvent entered)
+			{
+				setBackground(randomColor());
+				firstTextField.setText("WOW!");
+			}
+
+			public void mouseExited(MouseEvent exited)
+			{
+				setBackground(randomColor());
+				firstTextField.setText("AHHHHHH!");
+			}
 		});
 	}
 
